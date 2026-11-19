@@ -344,7 +344,8 @@ namespace HexResourceTracker.Core
 
                 string destructiblePrefabName = destructible.gameObject.name.Replace("(Clone)", string.Empty).Trim();
 
-                if (destructiblePrefabName != prefabName)
+                if (!TrackedResources.TryGetByPrefabName(destructiblePrefabName, out TrackedResourceDefinitionModel definition) ||
+                    definition.ResourcePrefabName != prefabName)
                 {
                     continue;
                 }

@@ -32,6 +32,14 @@ namespace HexResourceTracker.Core
             // Swamp
             new TrackedResourceDefinitionModel("Pickable_SeedTurnip", "Turnip Seeds", 300, TrackedResourceTypeEnum.Pickable, biomeName: "Swamp"),
 
+            new TrackedResourceDefinitionModel(
+                "mudpile",
+                "Muddy Scrap Pile",
+                310,
+                TrackedResourceTypeEnum.Deposit,
+                "IronScrap",
+                alsoPrefabNames: new[] { "mudpile2", "mudpile_beacon" }),
+
             // Mountains
             new TrackedResourceDefinitionModel("Pickable_DragonEgg", "Dragon Eggs", 400, TrackedResourceTypeEnum.Pickable, biomeName: "Mountains"),
             new TrackedResourceDefinitionModel("OnionSeeds", "Onion Seeds", 410, TrackedResourceTypeEnum.Container, biomeName: "Mountains"),
@@ -43,6 +51,8 @@ namespace HexResourceTracker.Core
                 TrackedResourceTypeEnum.Deposit,
                 "SilverOre",
                 "$piece_deposit_silvervein"),
+
+            new TrackedResourceDefinitionModel("MineRock_Obsidian", "Obsidian", 430, TrackedResourceTypeEnum.Deposit, "Obsidian"),
 
             // Plains
             new TrackedResourceDefinitionModel("Pickable_Flax_Wild", "Flax", 500, TrackedResourceTypeEnum.Pickable, biomeName: "Plains"),
@@ -115,6 +125,11 @@ namespace HexResourceTracker.Core
             foreach (TrackedResourceDefinitionModel resource in AllTrackedResources)
             {
                 ByPrefabName[resource.ResourcePrefabName] = resource;
+
+                foreach (string alsoPrefabName in resource.AlsoPrefabNames)
+                {
+                    ByPrefabName[alsoPrefabName] = resource;
+                }
 
                 if (!string.IsNullOrWhiteSpace(resource.MineRock5Name))
                 {

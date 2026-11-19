@@ -13,7 +13,11 @@ namespace HexResourceTracker.Core
                 { "MineRock_Tin", new ResourceDefinitionModel("MineRock_Tin", "TinOre") },
                 { "rock4_copper", new ResourceDefinitionModel("rock4_copper", "CopperOre") },
                 { "silvervein", new ResourceDefinitionModel("silvervein", "SilverOre") },
-                { "giant_skull", new ResourceDefinitionModel("giant_skull", "Softtissue") }
+                { "giant_skull", new ResourceDefinitionModel("giant_skull", "Softtissue") },
+                { "MineRock_Obsidian", new ResourceDefinitionModel("MineRock_Obsidian", "Obsidian") },
+                { "mudpile", new ResourceDefinitionModel("mudpile", "IronScrap") },
+                { "mudpile2", new ResourceDefinitionModel("mudpile", "IronScrap") },
+                { "mudpile_beacon", new ResourceDefinitionModel("mudpile", "IronScrap") }
             };
 
         internal static readonly Dictionary<string, ResourceDefinitionModel> MineRock5ResourcesByName =
