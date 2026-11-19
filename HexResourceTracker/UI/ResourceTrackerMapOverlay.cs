@@ -146,13 +146,17 @@ namespace HexResourceTracker.UI
         private static void BuildLocations(GameObject parent)
         {
             GameObject sectionContent = ResourceTrackerOverlayUiFactory.CreateCollapsibleSection(parent, "Locations", UpdateLayout, SectionSpacing);
-            foreach (var location in TrackedLocations.All)
+            foreach (var location in TrackedLocations.Groups())
             {
-                string prefabName = location.Key;
-                Toggle toggle = ResourceTrackerOverlayUiFactory.CreateToggle(sectionContent, $"{prefabName}_Toggle", location.Value);
-                toggle.SetIsOnWithoutNotify(PluginConfig.LocationConfigs[prefabName].Value);
-                ResourceTrackerOverlayState.LocationToggles[prefabName] = toggle;
-                toggle.onValueChanged.AddListener(value => PluginConfig.LocationConfigs[prefabName].Value = value);
+                string firstPrefabName = location.Value[0];
+                Toggle toggle = ResourceTrackerOverlayUiFactory.CreateToggle(sectionContent, $"{firstPrefabName}_Toggle", location.Key);
+                toggle.SetIsOnWithoutNotify(PluginConfig.LocationConfigs[firstPrefabName].Value);
+                foreach (string prefabName in location.Value)
+                {
+                    ResourceTrackerOverlayState.LocationToggles[prefabName] = toggle;
+                }
+
+                toggle.onValueChanged.AddListener(value => PluginConfig.LocationConfigs[firstPrefabName].Value = value);
             }
             foreach (TrackedResourceDefinitionModel resource in TrackedResources.AllTrackedResources.Where(resource => resource.ShowInLocations).OrderBy(resource => resource.SortOrder))
             {

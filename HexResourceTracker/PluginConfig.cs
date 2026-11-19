@@ -86,15 +86,20 @@ namespace HexResourceTracker
                 true,
                 "Enable or disable the HexResourceTracker mod.");
 
-            foreach (var location in TrackedLocations.All)
+            foreach (var location in TrackedLocations.Groups())
             {
-                string prefabName = location.Key;
-                ConfigEntry<bool> entry = config.Bind(LocationsSection, $"Track {location.Value}", true,
-                    $"Enable or disable tracking for {location.Value}.");
-                LocationConfigs[prefabName] = entry;
+                string label = location.Key;
+                string firstPrefabName = location.Value[0];
+                ConfigEntry<bool> entry = config.Bind(LocationsSection, $"Track {label}", true,
+                    $"Enable or disable tracking for {label}.");
+                foreach (string prefabName in location.Value)
+                {
+                    LocationConfigs[prefabName] = entry;
+                }
+
                 entry.SettingChanged += delegate
                 {
-                    ResourceTrackerOverlayState.HandleLocationTrackingChanged(prefabName, entry.Value);
+                    ResourceTrackerOverlayState.HandleLocationTrackingChanged(firstPrefabName, entry.Value);
                     LocationPinManager.ReconcilePins();
                 };
             }
@@ -125,10 +130,14 @@ namespace HexResourceTracker
 
             HideDungeonLabels = BindHideLabels(config, DungeonLabelsSection, "Dungeon", "dungeon", DungeonPinManager.UpdateDungeonLabels);
             HideLocationLabels = BindHideLabels(config, LocationLabelsSection, "Location", "location", LocationPinManager.UpdateLocationLabels);
-            foreach (var location in TrackedLocations.All)
+            foreach (var location in TrackedLocations.Groups())
             {
-                LocationLabelConfigs[location.Key] = BindLabel(config, LocationLabelsSection, location.Value,
+                ConfigEntry<string> label = BindLabel(config, LocationLabelsSection, location.Key,
                     LocationPinManager.UpdateLocationLabels);
+                foreach (string prefabName in location.Value)
+                {
+                    LocationLabelConfigs[prefabName] = label;
+                }
             }
 
             foreach (TrackedDungeonDefinitionModel dungeon in TrackedDungeons.AllTrackedDungeons.OrderBy(dungeon => dungeon.SortOrder))
