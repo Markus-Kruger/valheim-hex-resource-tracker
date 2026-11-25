@@ -23,6 +23,7 @@ namespace HexResourceTracker
         private const string DepositLabelsSection = "Deposit Labels";
         private const string LocationLabelsSection = "Location Labels";
         private const string CreaturesSection = "Creatures To Track";
+        private const string DebugSection = "Debug";
 
         private const int HideLabelOrder = 1000;
         private const int LabelOrder = 900;
@@ -31,6 +32,7 @@ namespace HexResourceTracker
         internal static readonly Dictionary<string, ConfigEntry<bool>> OverlaySectionCollapsedConfigs = new Dictionary<string, ConfigEntry<bool>>();
 
         internal static ConfigEntry<bool> IsModEnabled { get; private set; }
+        internal static ConfigEntry<bool> LogDepositChanges { get; private set; }
         internal static ConfigEntry<float> TrackingRange { get; private set; }
         internal static ConfigEntry<TrackingModeEnum> TrackingMode { get; private set; }
 
@@ -85,6 +87,12 @@ namespace HexResourceTracker
                 "Enable",
                 true,
                 "Enable or disable the HexResourceTracker mod.");
+
+            LogDepositChanges = config.Bind(
+                DebugSection,
+                "Log Deposit Changes",
+                false,
+                "Write a line to the BepInEx log when you hit, break or mine out a mineable object: its prefab, name token, what it turns into and whether it has a pin. For finding the names of new deposits.");
 
             foreach (var location in TrackedLocations.Groups())
             {
