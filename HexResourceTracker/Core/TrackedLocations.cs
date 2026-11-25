@@ -41,7 +41,11 @@ namespace HexResourceTracker.Core
             { "Mistlands_GuardTower3_ruined_new", "Abandoned Dvergr" },
 
             { "Mistlands_DvergrTownEntrance1", "Infested Mine" },
-            { "Mistlands_DvergrTownEntrance2", "Infested Mine" }
+            { "Mistlands_DvergrTownEntrance2", "Infested Mine" },
+
+            { "Hildir_crypt", "Smouldering Tombs" },
+            { "Hildir_cave", "Howling Cavern" },
+            { "Hildir_plainsfortress", "Sealed Tower" }
         };
 
         // Labels in first-seen order, each with its prefab names.
