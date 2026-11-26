@@ -16,7 +16,7 @@ static class Checks {
   Check(labels.Distinct().Count()==labels.Length,"no label appears twice");
   Check(groups.Sum(g=>g.Value.Count)==TrackedLocations.All.Count,"every prefab is in exactly one group");
   var size=groups.ToDictionary(g=>g.Key,g=>g.Value.Count);
-  Check(size["Boss Altar"]==7&&size["Active Dvergr"]==8&&size["Abandoned Dvergr"]==3
+  Check(size["Boss Altar"]==8&&size["Active Dvergr"]==8&&size["Abandoned Dvergr"]==3
    &&size["Trader"]==3&&size["Fuling Village"]==2&&size["Troll Cave"]==1,"group sizes");
   Check(groups.Single(g=>g.Key=="Abandoned Dvergr").Value.SequenceEqual(new[] { "Mistlands_GuardTower1_ruined_new","Mistlands_GuardTower1_ruined_new2","Mistlands_GuardTower3_ruined_new" }),"group keeps its prefab names");
   Check(!TrackedLocations.All.ContainsKey("Mistlands_DvergrTownEntrance1")&&!TrackedLocations.All.ContainsKey("Mistlands_DvergrTownEntrance2"),"Infested Mines are left to the author's dungeon tracking, not listed twice");

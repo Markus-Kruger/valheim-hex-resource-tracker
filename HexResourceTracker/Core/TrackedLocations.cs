@@ -26,6 +26,8 @@ namespace HexResourceTracker.Core
             { "GoblinKing", "Boss Altar" },
             { "Mistlands_DvergrBossEntrance1", "Boss Altar" },
             { "FaderLocation", "Boss Altar" },
+            // The Aesir passage, the Deep North's boss entrance (found in game by position, 2026-11-26).
+            { "DN_Bossroom", "Boss Altar" },
 
             { "Mistlands_GuardTower1_new", "Active Dvergr" },
             { "Mistlands_GuardTower2_new", "Active Dvergr" },

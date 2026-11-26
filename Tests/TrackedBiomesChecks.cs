@@ -36,6 +36,7 @@ static class Checks {
   Check(TrackedBiomes.ForLocations(trader)==(Heightmap.Biome.Meadows|Heightmap.Biome.BlackForest|Heightmap.Biome.Swamp),"a shared toggle covers every biome its locations are in");
   var altar=TrackedBiomes.ForLocations(TrackedLocations.Groups().Single(g=>g.Key=="Boss Altar").Value);
   Check(TrackedBiomes.IsShown(altar,Heightmap.Biome.Meadows)&&TrackedBiomes.IsShown(altar,Heightmap.Biome.AshLands),"boss altars show in each boss's biome");
+  Check(TrackedLocations.All["DN_Bossroom"]=="Boss Altar"&&TrackedBiomes.IsShown(altar,Heightmap.Biome.DeepNorth),"the Aesir passage (DN_Bossroom) is the Deep North's boss altar");
 
   var deer=TrackedBiomes.ForCreature("Deer");
   Check(TrackedBiomes.IsShown(deer,Heightmap.Biome.Meadows)&&TrackedBiomes.IsShown(deer,Heightmap.Biome.BlackForest),"an item in several biomes shows in each");

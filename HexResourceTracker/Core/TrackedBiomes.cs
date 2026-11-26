@@ -135,6 +135,7 @@ namespace HexResourceTracker.Core
             { "GoblinKing", Heightmap.Biome.Plains },
             { "Mistlands_DvergrBossEntrance1", Heightmap.Biome.Mistlands },
             { "FaderLocation", Heightmap.Biome.AshLands },
+            { "DN_Bossroom", Heightmap.Biome.DeepNorth },
             { "Mistlands_GuardTower1_new", Heightmap.Biome.Mistlands },
             { "Mistlands_GuardTower2_new", Heightmap.Biome.Mistlands },
             { "Mistlands_GuardTower3_new", Heightmap.Biome.Mistlands },
