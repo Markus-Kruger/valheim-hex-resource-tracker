@@ -41,7 +41,7 @@ static class Checks {
   var leviathan=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="Leviathan");
   Check(TrackedBiomes.IsShown(TrackedBiomes.ForResource(leviathan),Heightmap.Biome.Ocean),"the Leviathan shows on the Ocean");
   var bonemaw=TrackedBiomes.ForCreature("BonemawSerpent");
-  Check(TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.AshLands)&&TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.Ocean),"the Bonemaw shows in the Ashlands and on the Ocean");
+  Check(bonemaw==Heightmap.Biome.AshLands,"the Bonemaw shows in the Ashlands only (its water, not the open Ocean)");
 
   Check(Enumerable.Range(1,12).Where(n=>n!=4).All(n=>TrackedCreatures.TryGetDefinition("Fish"+n,out _)),"eleven fish are tracked");
   var puffer=TrackedBiomes.ForCreature("Fish12");

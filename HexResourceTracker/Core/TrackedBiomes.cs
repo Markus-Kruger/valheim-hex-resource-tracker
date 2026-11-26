@@ -78,7 +78,7 @@ namespace HexResourceTracker.Core
             { "Asksvin", Heightmap.Biome.AshLands },
             { "FallenValkyrie", Heightmap.Biome.AshLands },
             { "Morgen", Heightmap.Biome.AshLands },
-            { "BonemawSerpent", Heightmap.Biome.AshLands | Heightmap.Biome.Ocean },
+            { "BonemawSerpent", Heightmap.Biome.AshLands },
             { "Moose", Heightmap.Biome.DeepNorth },
             { "Seal", Heightmap.Biome.DeepNorth },
             { "TrollFrost", Heightmap.Biome.DeepNorth },
