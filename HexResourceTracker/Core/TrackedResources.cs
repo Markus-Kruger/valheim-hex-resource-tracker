@@ -102,10 +102,31 @@ namespace HexResourceTracker.Core
             new TrackedResourceDefinitionModel("Pickable_SeedKale", "Kale Seeds", 810, TrackedResourceTypeEnum.Pickable, biomeName: "Deep North"),
             new TrackedResourceDefinitionModel("OatSeeds", "Oat Seeds", 820, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
             new TrackedResourceDefinitionModel("PoteitrSeeds", "Potato Seeds", 830, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
+            // Every mould (Nord weapons, armour, the Intricate Key) shares one toggle; the pin shows the mould found.
+            new TrackedResourceDefinitionModel(MouldsKey, "Moulds", 840, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
 
             // Ocean
             new TrackedResourceDefinitionModel("Leviathan", "Leviathan", 900, TrackedResourceTypeEnum.Deposit, "Chitin")
         };
+
+        internal const string MouldsKey = "Moulds";
+        private const string MouldTokenPrefix = "$item_mold_";
+
+        // The tracked resource a container item counts towards: its own prefab name, or Moulds for any mould.
+        internal static string ContainerKeyForItem(string itemPrefabName, string itemNameToken)
+        {
+            if (!string.IsNullOrEmpty(itemPrefabName) && ByPrefabName.ContainsKey(itemPrefabName))
+            {
+                return itemPrefabName;
+            }
+
+            if (!string.IsNullOrEmpty(itemNameToken) && itemNameToken.StartsWith(MouldTokenPrefix))
+            {
+                return MouldsKey;
+            }
+
+            return null;
+        }
 
         private static readonly Dictionary<string, TrackedResourceDefinitionModel> ByPrefabName = new Dictionary<string, TrackedResourceDefinitionModel>();
         private static readonly Dictionary<string, TrackedResourceDefinitionModel> ByMineRock5Name = new Dictionary<string, TrackedResourceDefinitionModel>();

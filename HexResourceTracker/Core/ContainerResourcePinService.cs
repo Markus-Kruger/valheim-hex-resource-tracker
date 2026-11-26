@@ -80,8 +80,10 @@ namespace HexResourceTracker.Core
                 }
 
                 string itemPrefabName = item.m_dropPrefab.name;
+                string resourceKey = TrackedResources.ContainerKeyForItem(itemPrefabName, item.m_shared?.m_name);
 
-                if (!TrackedResources.TryGetByPrefabName(itemPrefabName, out definition) ||
+                if (resourceKey == null ||
+                    !TrackedResources.TryGetByPrefabName(resourceKey, out definition) ||
                     definition.ResourceType != TrackedResourceTypeEnum.Container)
                 {
                     continue;

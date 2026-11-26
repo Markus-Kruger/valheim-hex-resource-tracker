@@ -24,6 +24,11 @@ static class Checks {
   Check(TrackedBiomes.IsShown(mushrooms,Heightmap.Biome.Meadows)&&TrackedBiomes.IsShown(mushrooms,Heightmap.Biome.Swamp),"Mushrooms show in the Meadows and the Swamp");
   var root=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="YggdrasilRoot");
   Check(root.ResourceType==TrackedResourceTypeEnum.Deposit&&root.IconItemPrefabName=="Sap"&&TrackedBiomes.ForResource(root)==Heightmap.Biome.Mistlands,"Yggdrasil roots are a Mistlands deposit with the Sap icon");
+  var moulds=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName==TrackedResources.MouldsKey);
+  Check(moulds.ResourceType==TrackedResourceTypeEnum.Container&&TrackedBiomes.ForResource(moulds)==Heightmap.Biome.DeepNorth,"moulds are a Deep North container find");
+  Check(TrackedResources.ContainerKeyForItem("SomeMouldPrefab","$item_mold_axe")==TrackedResources.MouldsKey,"any mould in a container counts, by its name token");
+  Check(TrackedResources.ContainerKeyForItem("OatSeeds","$item_oat_seeds")=="OatSeeds","other container items still match by prefab name");
+  Check(TrackedResources.ContainerKeyForItem("Wood","$item_wood")==null,"an untracked item matches nothing");
   var copper=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="rock4_copper");
   Check(TrackedBiomes.ForResource(copper)==Heightmap.Biome.BlackForest,"a deposit's biome comes from the table");
 
