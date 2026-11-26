@@ -40,10 +40,11 @@ static class Checks {
   var bonemaw=TrackedBiomes.ForCreature("BonemawSerpent");
   Check(TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.AshLands)&&TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.Ocean),"the Bonemaw shows in the Ashlands and on the Ocean");
 
-  Check(Enumerable.Range(1,12).All(n=>TrackedCreatures.TryGetDefinition(n==4?"Fish4_cave":"Fish"+n,out _)),"all twelve fish are tracked");
+  Check(Enumerable.Range(1,12).Where(n=>n!=4).All(n=>TrackedCreatures.TryGetDefinition("Fish"+n,out _)),"eleven fish are tracked");
   var puffer=TrackedBiomes.ForCreature("Fish12");
   Check(TrackedBiomes.IsShown(puffer,Heightmap.Biome.Ocean)&&TrackedBiomes.IsShown(puffer,Heightmap.Biome.Mistlands),"the Pufferfish shows on the Ocean and in the Mistlands");
-  Check(TrackedBiomes.ForCreature("Fish4_cave")==Heightmap.Biome.Mountain,"the Tetra shows in the Mountains (Frost Cave lakes)");
+  Check(!TrackedCreatures.TryGetDefinition("Fish4_cave",out _)&&!TrackedCreatures.TryGetDefinition("Bat",out _),"Frost Cave only creatures (Tetra, Bat) are not tracked");
+  Check(TrackedBiomes.ForCreature("Leech")==Heightmap.Biome.Swamp,"Leeches show in the Swamp only");
   Check(TrackedCreatures.TryGetDefinition("Draugr_Ranged_sleeping",out var archer)&&archer.PrefabName=="Draugr","a sleeping Draugr archer counts as a Draugr");
   Check(TrackedCreatures.TryGetDefinition("Greydwarf_Frozen",out var frozen)&&frozen.PrefabName=="Greydwarf"
    &&TrackedBiomes.IsShown(TrackedBiomes.ForCreature("Greydwarf"),Heightmap.Biome.DeepNorth),"a frozen Greydwarf counts as a Greydwarf, in the Deep North too");
