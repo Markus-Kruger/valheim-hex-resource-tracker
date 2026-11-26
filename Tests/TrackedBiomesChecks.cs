@@ -34,6 +34,9 @@ static class Checks {
   var spear=TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="SpearWood"));
   Check(TrackedBiomes.IsShown(spear,Heightmap.Biome.BlackForest)&&TrackedBiomes.IsShown(spear,Heightmap.Biome.Swamp),"the Wooden Spear shows in the Black Forest and the Swamp");
   Check(TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="THSwordWood"))==Heightmap.Biome.Mistlands,"the Wooden Greatsword shows in the Mistlands");
+  Check(TrackedResources.IsWorldContainer(isPlayerBuilt:false,isGrave:false),"a world chest or barrel is looked inside");
+  Check(!TrackedResources.IsWorldContainer(isPlayerBuilt:true,isGrave:false),"a player's own chest is never pinned");
+  Check(!TrackedResources.IsWorldContainer(isPlayerBuilt:false,isGrave:true),"a grave is never pinned");
   var copper=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="rock4_copper");
   Check(TrackedBiomes.ForResource(copper)==Heightmap.Biome.BlackForest,"a deposit's biome comes from the table");
 

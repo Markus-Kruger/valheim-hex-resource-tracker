@@ -121,6 +121,13 @@ namespace HexResourceTracker.Core
             new TrackedResourceDefinitionModel("Leviathan", "Leviathan", 900, TrackedResourceTypeEnum.Deposit, "Chitin")
         };
 
+        // Every world-placed container (chests, barrels, granaries) is looked inside for tracked items; player-built
+        // chests and graves never are. This replaced a list of two chest prefabs, which missed the chest-only loot.
+        internal static bool IsWorldContainer(bool isPlayerBuilt, bool isGrave)
+        {
+            return !isPlayerBuilt && !isGrave;
+        }
+
         internal const string MouldsKey = "Moulds";
         private const string MouldTokenPrefix = "$item_mold_";
 

@@ -9,12 +9,6 @@ namespace HexResourceTracker.Patches
     [HarmonyPatch(typeof(Container), nameof(Container.Awake))]
     internal static class PatchContainerAwake
     {
-        private static readonly HashSet<string> TrackedContainerPrefabNames = new HashSet<string>
-        {
-            "TreasureChest_mountains",
-            "loot_deepNorth_Granary"
-        };
-
         private static void Postfix(Container __instance)
         {
             if (!PluginConfig.IsModEnabled.Value || __instance == null)
@@ -24,7 +18,9 @@ namespace HexResourceTracker.Patches
 
             string prefabName = __instance.gameObject.name.Replace("(Clone)", string.Empty).Trim();
 
-            if (!TrackedContainerPrefabNames.Contains(prefabName))
+            if (!TrackedResources.IsWorldContainer(
+                    __instance.GetComponent<Piece>() != null,
+                    __instance.GetComponent<TombStone>() != null))
             {
                 return;
             }
