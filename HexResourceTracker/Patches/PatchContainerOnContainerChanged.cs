@@ -17,8 +17,11 @@ namespace HexResourceTracker.Patches
 
             string prefabName = __instance.gameObject.name.Replace("(Clone)", string.Empty).Trim();
 
+            // World chests carry a Piece too, so only a piece a player placed counts as theirs.
+            Piece piece = __instance.GetComponent<Piece>();
+
             if (!TrackedResources.IsWorldContainer(
-                    __instance.GetComponent<Piece>() != null,
+                    piece != null && piece.IsPlacedByPlayer(),
                     __instance.GetComponent<TombStone>() != null))
             {
                 return;
