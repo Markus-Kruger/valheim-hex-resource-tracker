@@ -33,7 +33,12 @@ namespace HexResourceTracker.Core
             { "MineRock_Obsidian", Heightmap.Biome.Mountain },
             { TarPitResourcePinService.ResourcePrefabName, Heightmap.Biome.Plains },
             { "giant_skull", Heightmap.Biome.Mistlands },
-            { "LeviathanLava", Heightmap.Biome.AshLands }
+            { "LeviathanLava", Heightmap.Biome.AshLands },
+            { "GuckSack", Heightmap.Biome.Swamp },
+            { "Spawner_GreydwarfNest", Heightmap.Biome.BlackForest },
+            { "giant_sword1", Heightmap.Biome.Mistlands },
+            { "giant_helmet1", Heightmap.Biome.Mistlands },
+            { "Leviathan", Heightmap.Biome.Ocean }
         };
 
         private static readonly Dictionary<Room.Theme, Heightmap.Biome> Dungeons = new Dictionary<Room.Theme, Heightmap.Biome>
@@ -51,7 +56,24 @@ namespace HexResourceTracker.Core
             { "Deer", Heightmap.Biome.Meadows | Heightmap.Biome.BlackForest },
             { "Boar", Heightmap.Biome.Meadows },
             { "Hare", Heightmap.Biome.Mistlands },
-            { "Lox", Heightmap.Biome.Plains }
+            { "Lox", Heightmap.Biome.Plains },
+            { "Neck", Heightmap.Biome.Meadows },
+            { "Bjorn", Heightmap.Biome.BlackForest },
+            { "Abomination", Heightmap.Biome.Swamp },
+            { "Wraith", Heightmap.Biome.Swamp },
+            { "Surtling", Heightmap.Biome.Swamp },
+            { "Wolf", Heightmap.Biome.Mountain },
+            { "Hatchling", Heightmap.Biome.Mountain },
+            { "Deathsquito", Heightmap.Biome.Plains },
+            { "Unbjorn", Heightmap.Biome.Plains },
+            { "Asksvin", Heightmap.Biome.AshLands },
+            { "FallenValkyrie", Heightmap.Biome.AshLands },
+            { "Morgen", Heightmap.Biome.AshLands },
+            { "BonemawSerpent", Heightmap.Biome.AshLands | Heightmap.Biome.Ocean },
+            { "Moose", Heightmap.Biome.DeepNorth },
+            { "Seal", Heightmap.Biome.DeepNorth },
+            { "TrollFrost", Heightmap.Biome.DeepNorth },
+            { "Serpent", Heightmap.Biome.Ocean }
         };
 
         private static readonly Dictionary<string, Heightmap.Biome> Locations = new Dictionary<string, Heightmap.Biome>
@@ -86,7 +108,13 @@ namespace HexResourceTracker.Core
             { "Mistlands_DvergrTownEntrance2", Heightmap.Biome.Mistlands },
             { "Hildir_crypt", Heightmap.Biome.BlackForest },
             { "Hildir_cave", Heightmap.Biome.Mountain },
-            { "Hildir_plainsfortress", Heightmap.Biome.Plains }
+            { "Hildir_plainsfortress", Heightmap.Biome.Plains },
+            { "BearCave", Heightmap.Biome.BlackForest },
+            { "FireHole", Heightmap.Biome.Swamp },
+            { "MorgenHole1", Heightmap.Biome.AshLands },
+            { "MorgenHole2", Heightmap.Biome.AshLands },
+            { "MorgenHole3", Heightmap.Biome.AshLands },
+            { "NorthVillage", Heightmap.Biome.DeepNorth }
         };
 
         internal static bool IsShown(Heightmap.Biome itemBiomes, Heightmap.Biome currentBiome)

@@ -45,7 +45,16 @@ namespace HexResourceTracker.Core
 
             { "Hildir_crypt", "Smouldering Tombs" },
             { "Hildir_cave", "Howling Cavern" },
-            { "Hildir_plainsfortress", "Sealed Tower" }
+            { "Hildir_plainsfortress", "Sealed Tower" },
+
+            { "BearCave", "Bear Cave" },
+            { "FireHole", "Firehole" },
+
+            { "MorgenHole1", "Putrid Hole" },
+            { "MorgenHole2", "Putrid Hole" },
+            { "MorgenHole3", "Putrid Hole" },
+
+            { "NorthVillage", "Village" }
         };
 
         // Labels in first-seen order, each with its prefab names.

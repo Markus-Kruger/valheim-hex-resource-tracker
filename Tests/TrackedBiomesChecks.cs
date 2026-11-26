@@ -30,11 +30,24 @@ static class Checks {
   Check(!TrackedBiomes.IsShown(deer,Heightmap.Biome.Swamp),"an item is hidden outside its biomes");
   Check(!TrackedBiomes.IsShown(deer,Heightmap.Biome.None),"nothing shows before the biome is known");
 
-  var everything=TrackedResources.AllTrackedResources.Select(TrackedBiomes.ForResource)
-   .Concat(TrackedDungeons.AllTrackedDungeons.Select(d=>TrackedBiomes.ForDungeon(d.Theme)))
-   .Concat(TrackedCreatures.AllTrackedCreatures.Select(c=>TrackedBiomes.ForCreature(c.PrefabName)))
-   .Concat(TrackedLocations.All.Keys.Select(p=>TrackedBiomes.ForLocations(new[] { p })));
-  Check(everything.All(b=>!TrackedBiomes.IsShown(b,Heightmap.Biome.Ocean)),"nothing is tracked on the Ocean yet");
+  Check(TrackedBiomes.IsShown(TrackedBiomes.ForCreature("Serpent"),Heightmap.Biome.Ocean),"the Serpent shows on the Ocean");
+  var leviathan=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="Leviathan");
+  Check(TrackedBiomes.IsShown(TrackedBiomes.ForResource(leviathan),Heightmap.Biome.Ocean),"the Leviathan shows on the Ocean");
+  var bonemaw=TrackedBiomes.ForCreature("BonemawSerpent");
+  Check(TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.AshLands)&&TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.Ocean),"the Bonemaw shows in the Ashlands and on the Ocean");
+
+  string[] authorCreatures={"Deer","Boar","Hare","Lox"};
+  Check(TrackedCreatures.AllTrackedCreatures.Where(c=>authorCreatures.Contains(c.PrefabName)).All(c=>c.EnabledByDefault),"the author's creatures stay on by default");
+  Check(TrackedCreatures.AllTrackedCreatures.Where(c=>!authorCreatures.Contains(c.PrefabName)).All(c=>!c.EnabledByDefault),"every new creature is off by default");
+  Check(TrackedCreatures.TryGetDefinition("Bjorn_sleeping",out var sleepingBear)&&sleepingBear.PrefabName=="Bjorn","a sleeping bear counts as a bear");
+  Check(TrackedCreatures.TryGetDefinition("Morgen_NonSleeping",out var wakingMorgen)&&wakingMorgen.PrefabName=="Morgen","a waking Morgen counts as a Morgen");
+  Check(TrackedCreatures.AllTrackedCreatures.Select(c=>c.PrefabName).Distinct().Count()==TrackedCreatures.AllTrackedCreatures.Count,"no creature is listed twice");
+
+  var near=new[]{ new float[]{0,0}, new float[]{10,0}, new float[]{25,5}, new float[]{200,200} };
+  var packs=CreaturePacks.Group(near,p=>p[0],p=>p[1],30f);
+  Check(packs.Count==2&&packs[0].Count==3&&packs[1].Count==1,"creatures close together share one pack, a far one stands alone");
+  Check(CreaturePacks.Group(near,p=>p[0],p=>p[1],0f).Count==4,"a radius of zero leaves every creature on its own");
+  Check(CreaturePacks.Group(new float[0][],p=>p[0],p=>p[1],30f).Count==0,"no creatures, no packs");
 
   Check(TrackedBiomes.IsShown(TrackedBiomes.MemorialSiteSearch,Heightmap.Biome.DeepNorth),"the memorial site search shows in the Deep North");
   Check(TrackedBiomes.DisplayName(Heightmap.Biome.BlackForest)=="Black Forest"&&TrackedBiomes.DisplayName(Heightmap.Biome.Mountain)=="Mountains"

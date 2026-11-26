@@ -12,6 +12,7 @@ $sources = @(
     (Join-Path $projectRoot 'Core\TrackedDungeons.cs'),
     (Join-Path $projectRoot 'Core\TrackedCreatures.cs'),
     (Join-Path $projectRoot 'Core\TrackedLocations.cs'),
+    (Join-Path $projectRoot 'Core\CreaturePacks.cs'),
     (Join-Path $projectRoot 'Models\TrackedResourceDefinitionModel.cs'),
     (Join-Path $projectRoot 'Models\TrackedResourceTypeEnum.cs'),
     (Join-Path $projectRoot 'Models\TrackedDungeonDefinitionModel.cs'),

@@ -102,6 +102,7 @@
     <Compile Include="Patches\PatchLiquidVolumeAwake.cs" />
     <Compile Include="Core\PickableResourcePinService.cs" />
     <Compile Include="Core\TrackedBiomes.cs" />
+    <Compile Include="Core\CreaturePacks.cs" />
     <Compile Include="Core\TrackedCreatures.cs" />
     <Compile Include="Core\TrackedDungeons.cs" />
     <Compile Include="Core\TrackedResources.cs" />
@@ -128,6 +129,8 @@
     <Compile Include="Models\TrackedResourceDefinitionModel.cs" />
     <Compile Include="Models\TrackedResourceTypeEnum.cs" />
     <Compile Include="Patches\PatchCharacterAwake.cs" />
+    <Compile Include="Patches\PatchFishAwake.cs" />
+    <Compile Include="Patches\PatchLeviathan.cs" />
     <Compile Include="Patches\PatchContainerAwake.cs" />
     <Compile Include="Patches\PatchContainerOnContainerChanged.cs" />
     <Compile Include="Patches\PatchDepositDamageLog.cs" />

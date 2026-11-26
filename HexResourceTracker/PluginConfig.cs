@@ -34,6 +34,8 @@ namespace HexResourceTracker
         internal static ConfigEntry<bool> LogDepositChanges { get; private set; }
         internal static ConfigEntry<float> TrackingRange { get; private set; }
         internal static ConfigEntry<TrackingModeEnum> TrackingMode { get; private set; }
+        internal static ConfigEntry<bool> GroupCreaturePacks { get; private set; }
+        internal static ConfigEntry<float> CreaturePackRadius { get; private set; }
 
         internal static ConfigEntry<bool> HideDungeonLabels { get; private set; }
         internal static ConfigEntry<bool> HideDepositLabels { get; private set; }
@@ -161,8 +163,22 @@ namespace HexResourceTracker
 
             foreach (TrackedCreatureDefinitionModel creature in TrackedCreatures.AllTrackedCreatures.OrderBy(creature => creature.SortOrder))
             {
-                BindCreature(config, creature.PrefabName, creature.DisplayName);
+                BindCreature(config, creature.PrefabName, creature.DisplayName, creature.EnabledByDefault);
             }
+
+            GroupCreaturePacks = config.Bind(
+                CreaturesSection,
+                "Group Packs",
+                true,
+                "Show creatures of one kind that stand close together (a pack, herd or school) as a single pin.");
+
+            CreaturePackRadius = config.Bind(
+                CreaturesSection,
+                "Pack Radius",
+                30f,
+                new ConfigDescription(
+                    "How close, in meters, creatures of one kind must be to share a pin when Group Packs is on.",
+                    new AcceptableValueRange<float>(5f, 200f)));
         }
 
         internal static bool IsLocationTrackingEnabled(string prefabName)
@@ -295,12 +311,12 @@ namespace HexResourceTracker
             DungeonConfigs[dungeon.Theme] = entry;
         }
 
-        private static void BindCreature(ConfigFile config, string prefabName, string displayName)
+        private static void BindCreature(ConfigFile config, string prefabName, string displayName, bool enabledByDefault)
         {
             ConfigEntry<bool> entry = config.Bind(
                 CreaturesSection,
                 $"Track {displayName}",
-                true,
+                enabledByDefault,
                 $"Enable or disable tracking for {displayName}.");
 
             entry.SettingChanged += delegate

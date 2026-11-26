@@ -28,6 +28,7 @@ namespace HexResourceTracker.Core
                 "$piece_deposit_copper"),
 
             new TrackedResourceDefinitionModel("MineRock_Tin", "Tin", 240, TrackedResourceTypeEnum.Deposit, "TinOre"),
+            new TrackedResourceDefinitionModel("Spawner_GreydwarfNest", "Greydwarf Nest", 250, TrackedResourceTypeEnum.Deposit, "AncientSeed"),
 
             // Swamp
             new TrackedResourceDefinitionModel("Pickable_SeedTurnip", "Turnip Seeds", 300, TrackedResourceTypeEnum.Pickable, biomeName: "Swamp"),
@@ -54,6 +55,8 @@ namespace HexResourceTracker.Core
 
             new TrackedResourceDefinitionModel("MineRock_Obsidian", "Obsidian", 430, TrackedResourceTypeEnum.Deposit, "Obsidian"),
 
+            new TrackedResourceDefinitionModel("GuckSack", "Guck Sack", 320, TrackedResourceTypeEnum.Deposit, "Guck", alsoPrefabNames: new[] { "GuckSack_small" }),
+
             // Plains
             new TrackedResourceDefinitionModel("Pickable_Flax_Wild", "Flax", 500, TrackedResourceTypeEnum.Pickable, biomeName: "Plains"),
             new TrackedResourceDefinitionModel("Pickable_Barley_Wild", "Barley", 510, TrackedResourceTypeEnum.Pickable, biomeName: "Plains"),
@@ -75,6 +78,9 @@ namespace HexResourceTracker.Core
                 "Softtissue",
                 "$piece_giant_bone"),
 
+            new TrackedResourceDefinitionModel("giant_sword1", "Ancient Sword", 630, TrackedResourceTypeEnum.Deposit, "IronScrap", alsoPrefabNames: new[] { "giant_sword2" }),
+            new TrackedResourceDefinitionModel("giant_helmet1", "Ancient Armour", 640, TrackedResourceTypeEnum.Deposit, "IronScrap", alsoPrefabNames: new[] { "giant_helmet2" }),
+
             // Ashlands
             new TrackedResourceDefinitionModel("VineAsh", "Vineberries", 700, TrackedResourceTypeEnum.Pickable, biomeName: "Ashlands"),
             new TrackedResourceDefinitionModel("Pickable_SmokePuff", "Smoke Puffs", 710, TrackedResourceTypeEnum.Pickable, biomeName: "Ashlands"),
@@ -93,7 +99,10 @@ namespace HexResourceTracker.Core
             new TrackedResourceDefinitionModel("LingonberryBush", "Lingonberries", 800, TrackedResourceTypeEnum.Pickable, biomeName: "Deep North"),
             new TrackedResourceDefinitionModel("Pickable_SeedKale", "Kale Seeds", 810, TrackedResourceTypeEnum.Pickable, biomeName: "Deep North"),
             new TrackedResourceDefinitionModel("OatSeeds", "Oat Seeds", 820, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
-            new TrackedResourceDefinitionModel("PoteitrSeeds", "Potato Seeds", 830, TrackedResourceTypeEnum.Container, biomeName: "Deep North")
+            new TrackedResourceDefinitionModel("PoteitrSeeds", "Potato Seeds", 830, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
+
+            // Ocean
+            new TrackedResourceDefinitionModel("Leviathan", "Leviathan", 900, TrackedResourceTypeEnum.Deposit, "Chitin")
         };
 
         private static readonly Dictionary<string, TrackedResourceDefinitionModel> ByPrefabName = new Dictionary<string, TrackedResourceDefinitionModel>();
