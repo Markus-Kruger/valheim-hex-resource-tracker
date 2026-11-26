@@ -130,6 +130,7 @@
     <Compile Include="Models\TrackedResourceTypeEnum.cs" />
     <Compile Include="Patches\PatchCharacterAwake.cs" />
     <Compile Include="Patches\PatchFishAwake.cs" />
+    <Compile Include="Patches\PatchRandomFlyingBirdAwake.cs" />
     <Compile Include="Patches\PatchLeviathan.cs" />
     <Compile Include="Patches\PatchContainerAwake.cs" />
     <Compile Include="Patches\PatchContainerOnContainerChanged.cs" />
