@@ -155,7 +155,8 @@ namespace HexResourceTracker.Core
             { "MorgenHole1", Heightmap.Biome.AshLands },
             { "MorgenHole2", Heightmap.Biome.AshLands },
             { "MorgenHole3", Heightmap.Biome.AshLands },
-            { "NorthVillage", Heightmap.Biome.DeepNorth }
+            { "NorthVillage", Heightmap.Biome.DeepNorth },
+            { "AncientUpgradeStation", Heightmap.Biome.Mountain }
         };
 
         internal static bool IsShown(Heightmap.Biome itemBiomes, Heightmap.Biome currentBiome)

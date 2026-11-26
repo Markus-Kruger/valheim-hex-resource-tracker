@@ -53,7 +53,10 @@ namespace HexResourceTracker.Core
             { "MorgenHole2", "Putrid Hole" },
             { "MorgenHole3", "Putrid Hole" },
 
-            { "NorthVillage", "Village" }
+            { "NorthVillage", "Village" },
+
+            // Found in game by position (2026-11-26); its in-game name was not found in the game's text, so Markus's.
+            { "AncientUpgradeStation", "Forge of Potential" }
         };
 
         // Labels in first-seen order, each with its prefab names.

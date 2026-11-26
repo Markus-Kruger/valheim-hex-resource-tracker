@@ -12,7 +12,7 @@ static class Checks {
   var labels=groups.Select(g=>g.Key).ToArray();
   Check(labels.SequenceEqual(new[] { "Memorial Site","Charred Fortress","Troll Cave","Fuling Village","Trader",
    "Boss Altar","Active Dvergr","Abandoned Dvergr","Smouldering Tombs","Howling Cavern","Sealed Tower",
-   "Bear Cave","Firehole","Putrid Hole","Village" }),"one group per label, in first-seen order");
+   "Bear Cave","Firehole","Putrid Hole","Village","Forge of Potential" }),"one group per label, in first-seen order");
   Check(labels.Distinct().Count()==labels.Length,"no label appears twice");
   Check(groups.Sum(g=>g.Value.Count)==TrackedLocations.All.Count,"every prefab is in exactly one group");
   var size=groups.ToDictionary(g=>g.Key,g=>g.Value.Count);
