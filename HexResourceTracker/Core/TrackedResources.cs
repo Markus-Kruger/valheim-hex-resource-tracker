@@ -79,6 +79,8 @@ namespace HexResourceTracker.Core
                 "$piece_giant_bone"),
 
             new TrackedResourceDefinitionModel("giant_sword1", "Ancient Sword", 630, TrackedResourceTypeEnum.Deposit, "IronScrap", alsoPrefabNames: new[] { "giant_sword2" }),
+            // Found through their ResourceRoot component (the roots a Sap Extractor taps), not by prefab name.
+            new TrackedResourceDefinitionModel(YggdrasilRootPinService.ResourcePrefabName, "Yggdrasil Root", 650, TrackedResourceTypeEnum.Deposit, "Sap"),
             new TrackedResourceDefinitionModel("giant_helmet1", "Ancient Armour", 640, TrackedResourceTypeEnum.Deposit, "IronScrap", alsoPrefabNames: new[] { "giant_helmet2" }),
 
             // Ashlands

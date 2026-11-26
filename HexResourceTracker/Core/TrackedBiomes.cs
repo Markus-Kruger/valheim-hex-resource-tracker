@@ -45,6 +45,7 @@ namespace HexResourceTracker.Core
             { "Spawner_GreydwarfNest", Heightmap.Biome.BlackForest },
             { "giant_sword1", Heightmap.Biome.Mistlands },
             { "giant_helmet1", Heightmap.Biome.Mistlands },
+            { YggdrasilRootPinService.ResourcePrefabName, Heightmap.Biome.Mistlands },
             { "Leviathan", Heightmap.Biome.Ocean }
         };
 

@@ -2,10 +2,11 @@
 using System;
 using System.Linq;
 using HexResourceTracker.Core;
+using HexResourceTracker.Models;
 public class Heightmap { [Flags] public enum Biome { None = 0, Meadows = 1, Swamp = 2, Mountain = 4, BlackForest = 8, Plains = 16, AshLands = 32, DeepNorth = 64, Ocean = 256, Mistlands = 512 } }
 public class Room { public enum Theme { ForestCrypt, SunkenCrypt, Cave, DvergerTown, MorkHalla, Hole } }
 public class Minimap { public enum PinType { Icon2, Icon3 } }
-namespace HexResourceTracker.Core { internal static class TarPitResourcePinService { internal const string ResourcePrefabName="TarLiquid"; } }
+namespace HexResourceTracker.Core { internal static class TarPitResourcePinService { internal const string ResourcePrefabName="TarLiquid"; } internal static class YggdrasilRootPinService { internal const string ResourcePrefabName="YggdrasilRoot"; } }
 static class Checks {
  static int failures;
  static void Check(bool ok,string name) { Console.WriteLine((ok?"PASS ":"FAIL ")+name); if(!ok) failures++; }
@@ -21,6 +22,8 @@ static class Checks {
   Check(TrackedBiomes.IsShown(thistle,Heightmap.Biome.BlackForest)&&TrackedBiomes.IsShown(thistle,Heightmap.Biome.Swamp),"Thistle shows in the Black Forest and the Swamp");
   var mushrooms=TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="Pickable_Mushroom"));
   Check(TrackedBiomes.IsShown(mushrooms,Heightmap.Biome.Meadows)&&TrackedBiomes.IsShown(mushrooms,Heightmap.Biome.Swamp),"Mushrooms show in the Meadows and the Swamp");
+  var root=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="YggdrasilRoot");
+  Check(root.ResourceType==TrackedResourceTypeEnum.Deposit&&root.IconItemPrefabName=="Sap"&&TrackedBiomes.ForResource(root)==Heightmap.Biome.Mistlands,"Yggdrasil roots are a Mistlands deposit with the Sap icon");
   var copper=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="rock4_copper");
   Check(TrackedBiomes.ForResource(copper)==Heightmap.Biome.BlackForest,"a deposit's biome comes from the table");
 

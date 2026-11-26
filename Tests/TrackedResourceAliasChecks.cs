@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using HexResourceTracker.Core;
 using HexResourceTracker.Models;
-namespace HexResourceTracker.Core { internal static class TarPitResourcePinService { internal const string ResourcePrefabName="TarLiquid"; } }
+namespace HexResourceTracker.Core { internal static class TarPitResourcePinService { internal const string ResourcePrefabName="TarLiquid"; } internal static class YggdrasilRootPinService { internal const string ResourcePrefabName="YggdrasilRoot"; } }
 static class Checks {
  static int failures;
  static void Check(bool ok,string name) { Console.WriteLine((ok?"PASS ":"FAIL ")+name); if(!ok) failures++; }

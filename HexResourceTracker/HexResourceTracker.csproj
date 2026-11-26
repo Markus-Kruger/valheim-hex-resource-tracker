@@ -103,6 +103,7 @@
     <Compile Include="Core\PickableResourcePinService.cs" />
     <Compile Include="Core\TrackedBiomes.cs" />
     <Compile Include="Core\CreaturePacks.cs" />
+    <Compile Include="Core\YggdrasilRootPinService.cs" />
     <Compile Include="Core\TrackedCreatures.cs" />
     <Compile Include="Core\TrackedDungeons.cs" />
     <Compile Include="Core\TrackedResources.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Patches\PatchCharacterAwake.cs" />
     <Compile Include="Patches\PatchFishAwake.cs" />
     <Compile Include="Patches\PatchRandomFlyingBirdAwake.cs" />
+    <Compile Include="Patches\PatchResourceRootAwake.cs" />
     <Compile Include="Patches\PatchLeviathan.cs" />
     <Compile Include="Patches\PatchContainerAwake.cs" />
     <Compile Include="Patches\PatchContainerOnContainerChanged.cs" />
