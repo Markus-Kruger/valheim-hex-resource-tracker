@@ -51,6 +51,7 @@ namespace HexResourceTracker.Core
                 new TrackedCreatureDefinitionModel("SeekerBrute", "Seeker Soldier", "TrophySeekerBrute", 61, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("SeekerBrood", "Seeker Brood", "RoyalJelly", 62, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Tick", "Tick", "TrophyTick", 63, enabledByDefault: false),
+                new TrackedCreatureDefinitionModel("Gjall", "Gjall", "TrophyGjall", 64, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Volture", "Volture", "TrophyVolture", 74, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("AshCrow", "Ash Crow", "Feathers", 75, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Skeleton_DeepNorth", "Deep North Skeleton", "TrophySkeleton", 83, enabledByDefault: false),

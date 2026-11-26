@@ -99,6 +99,7 @@ namespace HexResourceTracker.Core
             { "SeekerBrute", Heightmap.Biome.Mistlands },
             { "SeekerBrood", Heightmap.Biome.Mistlands },
             { "Tick", Heightmap.Biome.Mistlands },
+            { "Gjall", Heightmap.Biome.Mistlands },
             { "Volture", Heightmap.Biome.AshLands },
             { "AshCrow", Heightmap.Biome.AshLands },
             { "Skeleton_DeepNorth", Heightmap.Biome.DeepNorth },

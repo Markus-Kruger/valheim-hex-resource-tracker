@@ -53,6 +53,7 @@ static class Checks {
    &&TrackedBiomes.IsShown(TrackedBiomes.ForCreature("Greydwarf"),Heightmap.Biome.DeepNorth),"a frozen Greydwarf counts as a Greydwarf, in the Deep North too");
   Check(TrackedCreatures.TryGetDefinition("JotunWarriorDualWield",out var krigen)&&krigen.DisplayName=="Krigen","both Krigen share one toggle");
   Check(TrackedCreatures.TryGetDefinition("Seagal",out var gull)&&TrackedBiomes.IsShown(TrackedBiomes.ForCreature("Seagal"),Heightmap.Biome.Ocean),"gulls are tracked, on the Ocean too");
+  Check(TrackedCreatures.TryGetDefinition("Gjall",out _)&&TrackedBiomes.ForCreature("Gjall")==Heightmap.Biome.Mistlands,"the Gjall is tracked in the Mistlands");
   string[] authorCreatures={"Deer","Boar","Hare","Lox"};
   Check(TrackedCreatures.AllTrackedCreatures.Where(c=>authorCreatures.Contains(c.PrefabName)).All(c=>c.EnabledByDefault),"the author's creatures stay on by default");
   Check(TrackedCreatures.AllTrackedCreatures.Where(c=>!authorCreatures.Contains(c.PrefabName)).All(c=>!c.EnabledByDefault),"every new creature is off by default");
