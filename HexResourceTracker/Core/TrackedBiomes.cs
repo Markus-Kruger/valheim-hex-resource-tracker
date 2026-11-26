@@ -22,6 +22,13 @@ namespace HexResourceTracker.Core
             { Heightmap.Biome.Ocean, "Ocean" }
         };
 
+        // Biomes a resource is also found in beyond its biome name (seen in game).
+        private static readonly Dictionary<string, Heightmap.Biome> AlsoFoundIn = new Dictionary<string, Heightmap.Biome>
+        {
+            { "Pickable_Mushroom", Heightmap.Biome.Swamp },
+            { "Pickable_Thistle", Heightmap.Biome.Swamp }
+        };
+
         // Resources without a biome name (deposits).
         private static readonly Dictionary<string, Heightmap.Biome> Resources = new Dictionary<string, Heightmap.Biome>
         {
@@ -164,18 +171,20 @@ namespace HexResourceTracker.Core
 
         internal static Heightmap.Biome ForResource(TrackedResourceDefinitionModel resource)
         {
+            AlsoFoundIn.TryGetValue(resource.ResourcePrefabName, out Heightmap.Biome also);
+
             if (!string.IsNullOrWhiteSpace(resource.BiomeName))
             {
                 foreach (var name in Names)
                 {
                     if (name.Value == resource.BiomeName)
                     {
-                        return name.Key;
+                        return name.Key | also;
                     }
                 }
             }
 
-            return Resources.TryGetValue(resource.ResourcePrefabName, out Heightmap.Biome biome) ? biome : Heightmap.Biome.None;
+            return (Resources.TryGetValue(resource.ResourcePrefabName, out Heightmap.Biome biome) ? biome : Heightmap.Biome.None) | also;
         }
 
         internal static Heightmap.Biome ForDungeon(Room.Theme theme)

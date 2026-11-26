@@ -17,6 +17,10 @@ static class Checks {
 
   var turnip=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="Pickable_SeedTurnip");
   Check(TrackedBiomes.ForResource(turnip)==Heightmap.Biome.Swamp,"a pickable's biome comes from its biome name");
+  var thistle=TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="Pickable_Thistle"));
+  Check(TrackedBiomes.IsShown(thistle,Heightmap.Biome.BlackForest)&&TrackedBiomes.IsShown(thistle,Heightmap.Biome.Swamp),"Thistle shows in the Black Forest and the Swamp");
+  var mushrooms=TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="Pickable_Mushroom"));
+  Check(TrackedBiomes.IsShown(mushrooms,Heightmap.Biome.Meadows)&&TrackedBiomes.IsShown(mushrooms,Heightmap.Biome.Swamp),"Mushrooms show in the Meadows and the Swamp");
   var copper=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="rock4_copper");
   Check(TrackedBiomes.ForResource(copper)==Heightmap.Biome.BlackForest,"a deposit's biome comes from the table");
 
