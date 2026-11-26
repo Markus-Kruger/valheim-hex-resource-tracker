@@ -61,6 +61,7 @@ namespace HexResourceTracker.Core
             { "Bjorn", Heightmap.Biome.BlackForest },
             { "Abomination", Heightmap.Biome.Swamp },
             { "Wraith", Heightmap.Biome.Swamp },
+            { "Writhan", Heightmap.Biome.Swamp },
             { "Surtling", Heightmap.Biome.Swamp },
             { "Wolf", Heightmap.Biome.Mountain },
             { "Hatchling", Heightmap.Biome.Mountain },

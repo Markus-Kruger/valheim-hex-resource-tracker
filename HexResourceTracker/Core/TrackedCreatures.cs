@@ -18,6 +18,7 @@ namespace HexResourceTracker.Core
                 new TrackedCreatureDefinitionModel("Bjorn", "Bear", "TrophyBjorn", 20, enabledByDefault: false, alsoPrefabNames: new[] { "Bjorn_sleeping" }),
                 new TrackedCreatureDefinitionModel("Abomination", "Abomination", "TrophyAbomination", 30, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Wraith", "Wraith", "TrophyWraith", 31, enabledByDefault: false),
+                new TrackedCreatureDefinitionModel("Writhan", "Writhan", "TrophyWrithan", 38, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Surtling", "Surtling", "TrophySurtling", 32, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Wolf", "Wolf", "TrophyWolf", 40, enabledByDefault: false),
                 new TrackedCreatureDefinitionModel("Hatchling", "Drake", "TrophyHatchling", 41, enabledByDefault: false),
