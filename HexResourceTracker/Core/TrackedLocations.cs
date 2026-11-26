@@ -40,9 +40,6 @@ namespace HexResourceTracker.Core
             { "Mistlands_GuardTower1_ruined_new2", "Abandoned Dvergr" },
             { "Mistlands_GuardTower3_ruined_new", "Abandoned Dvergr" },
 
-            { "Mistlands_DvergrTownEntrance1", "Infested Mine" },
-            { "Mistlands_DvergrTownEntrance2", "Infested Mine" },
-
             { "Hildir_crypt", "Smouldering Tombs" },
             { "Hildir_cave", "Howling Cavern" },
             { "Hildir_plainsfortress", "Sealed Tower" },

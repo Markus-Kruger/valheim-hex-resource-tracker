@@ -144,8 +144,6 @@ namespace HexResourceTracker.Core
             { "Mistlands_GuardTower1_ruined_new", Heightmap.Biome.Mistlands },
             { "Mistlands_GuardTower1_ruined_new2", Heightmap.Biome.Mistlands },
             { "Mistlands_GuardTower3_ruined_new", Heightmap.Biome.Mistlands },
-            { "Mistlands_DvergrTownEntrance1", Heightmap.Biome.Mistlands },
-            { "Mistlands_DvergrTownEntrance2", Heightmap.Biome.Mistlands },
             { "Hildir_crypt", Heightmap.Biome.BlackForest },
             { "Hildir_cave", Heightmap.Biome.Mountain },
             { "Hildir_plainsfortress", Heightmap.Biome.Plains },
