@@ -36,6 +36,10 @@ static class Checks {
   var bonemaw=TrackedBiomes.ForCreature("BonemawSerpent");
   Check(TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.AshLands)&&TrackedBiomes.IsShown(bonemaw,Heightmap.Biome.Ocean),"the Bonemaw shows in the Ashlands and on the Ocean");
 
+  Check(Enumerable.Range(1,12).All(n=>TrackedCreatures.TryGetDefinition(n==4?"Fish4_cave":"Fish"+n,out _)),"all twelve fish are tracked");
+  var puffer=TrackedBiomes.ForCreature("Fish12");
+  Check(TrackedBiomes.IsShown(puffer,Heightmap.Biome.Ocean)&&TrackedBiomes.IsShown(puffer,Heightmap.Biome.Mistlands),"the Pufferfish shows on the Ocean and in the Mistlands");
+  Check(TrackedBiomes.ForCreature("Fish4_cave")==Heightmap.Biome.Mountain,"the Tetra shows in the Mountains (Frost Cave lakes)");
   string[] authorCreatures={"Deer","Boar","Hare","Lox"};
   Check(TrackedCreatures.AllTrackedCreatures.Where(c=>authorCreatures.Contains(c.PrefabName)).All(c=>c.EnabledByDefault),"the author's creatures stay on by default");
   Check(TrackedCreatures.AllTrackedCreatures.Where(c=>!authorCreatures.Contains(c.PrefabName)).All(c=>!c.EnabledByDefault),"every new creature is off by default");

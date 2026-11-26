@@ -73,7 +73,20 @@ namespace HexResourceTracker.Core
             { "Moose", Heightmap.Biome.DeepNorth },
             { "Seal", Heightmap.Biome.DeepNorth },
             { "TrollFrost", Heightmap.Biome.DeepNorth },
-            { "Serpent", Heightmap.Biome.Ocean }
+            { "Serpent", Heightmap.Biome.Ocean },
+            // Fish, by where their schools spawn (Valheim Wiki, Fish).
+            { "Fish1", Heightmap.Biome.Meadows | Heightmap.Biome.BlackForest },
+            { "Fish2", Heightmap.Biome.Meadows | Heightmap.Biome.BlackForest },
+            { "Fish3", Heightmap.Biome.Ocean },
+            { "Fish4_cave", Heightmap.Biome.Mountain },
+            { "Fish5", Heightmap.Biome.BlackForest },
+            { "Fish6", Heightmap.Biome.Swamp },
+            { "Fish7", Heightmap.Biome.Plains },
+            { "Fish8", Heightmap.Biome.Ocean },
+            { "Fish9", Heightmap.Biome.Mistlands },
+            { "Fish10", Heightmap.Biome.DeepNorth },
+            { "Fish11", Heightmap.Biome.AshLands },
+            { "Fish12", Heightmap.Biome.Ocean | Heightmap.Biome.Mistlands }
         };
 
         private static readonly Dictionary<string, Heightmap.Biome> Locations = new Dictionary<string, Heightmap.Biome>
