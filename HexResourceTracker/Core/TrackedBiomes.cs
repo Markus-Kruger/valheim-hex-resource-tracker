@@ -26,7 +26,8 @@ namespace HexResourceTracker.Core
         private static readonly Dictionary<string, Heightmap.Biome> AlsoFoundIn = new Dictionary<string, Heightmap.Biome>
         {
             { "Pickable_Mushroom", Heightmap.Biome.Swamp },
-            { "Pickable_Thistle", Heightmap.Biome.Swamp }
+            { "Pickable_Thistle", Heightmap.Biome.Swamp },
+            { "SpearWood", Heightmap.Biome.Swamp }
         };
 
         // Resources without a biome name (deposits).

@@ -29,6 +29,11 @@ static class Checks {
   Check(TrackedResources.ContainerKeyForItem("SomeMouldPrefab","$item_mold_axe")==TrackedResources.MouldsKey,"any mould in a container counts, by its name token");
   Check(TrackedResources.ContainerKeyForItem("OatSeeds","$item_oat_seeds")=="OatSeeds","other container items still match by prefab name");
   Check(TrackedResources.ContainerKeyForItem("Wood","$item_wood")==null,"an untracked item matches nothing");
+  string[] chestOnly={"AxeHead1","AxeHead2","AxeWood","KnifeWood","MaceWood","SpearWood","SledgeWood","BattleaxeWood","AtgeirWood","THSwordWood"};
+  Check(chestOnly.All(p=>TrackedResources.TryGetByPrefabName(p,out var d)&&d.ResourceType==TrackedResourceTypeEnum.Container),"the axe heads and wooden weapons are chest finds");
+  var spear=TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="SpearWood"));
+  Check(TrackedBiomes.IsShown(spear,Heightmap.Biome.BlackForest)&&TrackedBiomes.IsShown(spear,Heightmap.Biome.Swamp),"the Wooden Spear shows in the Black Forest and the Swamp");
+  Check(TrackedBiomes.ForResource(TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="THSwordWood"))==Heightmap.Biome.Mistlands,"the Wooden Greatsword shows in the Mistlands");
   var copper=TrackedResources.AllTrackedResources.Single(r=>r.ResourcePrefabName=="rock4_copper");
   Check(TrackedBiomes.ForResource(copper)==Heightmap.Biome.BlackForest,"a deposit's biome comes from the table");
 

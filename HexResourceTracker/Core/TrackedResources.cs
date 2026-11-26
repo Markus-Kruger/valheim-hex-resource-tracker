@@ -102,6 +102,18 @@ namespace HexResourceTracker.Core
             new TrackedResourceDefinitionModel("Pickable_SeedKale", "Kale Seeds", 810, TrackedResourceTypeEnum.Pickable, biomeName: "Deep North"),
             new TrackedResourceDefinitionModel("OatSeeds", "Oat Seeds", 820, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
             new TrackedResourceDefinitionModel("PoteitrSeeds", "Potato Seeds", 830, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
+            // Chest-only loot (Friday's chest-only report, 2026-11-24; Markus, 2026-11-26): a chest is pinned while it holds one.
+            new TrackedResourceDefinitionModel("AxeHead1", "Curious Axe Head", 140, TrackedResourceTypeEnum.Container, biomeName: "Meadows"),
+            new TrackedResourceDefinitionModel("AxeHead2", "Mysterious Axe Head", 141, TrackedResourceTypeEnum.Container, biomeName: "Meadows"),
+            new TrackedResourceDefinitionModel("AxeWood", "Wooden Axe", 150, TrackedResourceTypeEnum.Container, biomeName: "Meadows"),
+            new TrackedResourceDefinitionModel("KnifeWood", "Wooden Knife", 151, TrackedResourceTypeEnum.Container, biomeName: "Meadows"),
+            new TrackedResourceDefinitionModel("MaceWood", "Wooden Mace", 152, TrackedResourceTypeEnum.Container, biomeName: "Meadows"),
+            new TrackedResourceDefinitionModel("SpearWood", "Wooden Spear", 260, TrackedResourceTypeEnum.Container, biomeName: "Black Forest"),
+            new TrackedResourceDefinitionModel("SledgeWood", "Wooden Sledge", 330, TrackedResourceTypeEnum.Container, biomeName: "Swamp"),
+            new TrackedResourceDefinitionModel("BattleaxeWood", "Wooden Battleaxe", 440, TrackedResourceTypeEnum.Container, biomeName: "Mountains"),
+            new TrackedResourceDefinitionModel("AtgeirWood", "Wooden Atgeir", 550, TrackedResourceTypeEnum.Container, biomeName: "Plains"),
+            new TrackedResourceDefinitionModel("THSwordWood", "Wooden Greatsword", 655, TrackedResourceTypeEnum.Container, biomeName: "Mistlands"),
+
             // Every mould (Nord weapons, armour, the Intricate Key) shares one toggle; the pin shows the mould found.
             new TrackedResourceDefinitionModel(MouldsKey, "Moulds", 840, TrackedResourceTypeEnum.Container, biomeName: "Deep North"),
 
